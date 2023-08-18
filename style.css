@@ -1,0 +1,22 @@
+button {
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button.on {
+    background-color: #30cf51;
+    color: #fff;
+}
+
+button:active {
+    background-color: #666;
+    color: #fff;
+}
+
+button:hover {
+    background-color: #ddd;
+}
