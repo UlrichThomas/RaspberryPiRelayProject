@@ -44,6 +44,7 @@ relayGroup.forEach(item => item.addEventListener("click", event => {
         } else {
             jsonArray.push(id);
         }
-        writeJsonFile([id]);
+        writeJsonFile({id});
     });
+    item.classList.toggle('on');
 }));
