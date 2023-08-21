@@ -13,6 +13,7 @@ async function readJsonFile(){
     }
 }
 
+//adds to db.json
 async function writeJsonFile(data){
     try{
         const response = await fetch(url, {
@@ -32,19 +33,29 @@ async function writeJsonFile(data){
         console.error('Error writing JSON file:', error);
     }
 }
+
+//removes from db.json
+async function deleteId(id){
+    const response = await fetch(url + '/' + id, {method: 'DELETE'})
+    if(!response.ok){
+        throw Error('Error' + response.url + response.statusText);
+    }
+}
 //add event for when button gets pressed
 const relayGroup = document.querySelectorAll('.relay');
 relayGroup.forEach(item => item.addEventListener("click", event => {
     event.preventDefault();
     let id = item.id;
     readJsonFile().then(jsonArray => {
-        const index = jsonArray.indexOf(id);
+        const index = jsonArray.findIndex(loc => loc.id === id);
+        console.log(index);
         if(index !== -1){
             jsonArray.splice(index, 1);
+            deleteId(id);
         } else {
-            jsonArray.push(id);
+            console.log("not in");
+            writeJsonFile({id});
         }
-        writeJsonFile({id});
     });
     item.classList.toggle('on');
 }));
