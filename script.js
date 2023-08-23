@@ -1,5 +1,4 @@
-//'use strict'
-
+//url for json server
 const url = 'http://localhost:3000/activeRelays'
 
 //reads json file
@@ -47,15 +46,13 @@ async function deleteId(id){
 const relayGroup = document.querySelectorAll('.relay');
 relayGroup.forEach(item => item.addEventListener("click", event => {
     event.preventDefault();
-    let id = item.id; //prob can rid of
+    const id = item.id; //prob can rid of
     readJsonFile().then(jsonArray => {
         const index = jsonArray.findIndex(loc => loc.id === id); //finds where the target id is in the json array
-        //console.log(index); //uncomment to debug index value
         if(index !== -1){ // if id is in the array
             jsonArray.splice(index, 1);
             deleteId(id);
         } else { // if id is not in the array
-            //console.log("not in"); // was used for debugging
             writeJsonFile({id});
         }
     });
