@@ -1,4 +1,7 @@
-This project was made for (raspberry pi type) and (relay board)
+This project was made for raspberry pi and Waveshare RPi 8-ch Relay Board
+This project still under construction, a python file has yet to be added as of 9/7/2023
+Python file will be added before the end of September, setting up a few things on the Raspberry Pi first
+
 All code and live local servers are through VScode
 
 Webpage Server:
