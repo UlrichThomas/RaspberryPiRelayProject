@@ -1,7 +1,10 @@
 //url for json server
 const url = 'http://localhost:3000/activeRelays'
 
-//reads json file
+/**
+ * reads JSON file
+ * @returns JSON data
+ */
 async function readJsonFile(){
     try{
         const response = await fetch(url);
@@ -13,7 +16,10 @@ async function readJsonFile(){
     }
 }
 
-//adds to db.json
+/**
+ * Writes to JSON File
+ * @param {*} data the number being passed in
+ */
 async function writeJsonFile(data){
     try{
         const response = await fetch(url, {
@@ -35,26 +41,43 @@ async function writeJsonFile(data){
     }
 }
 
-//removes from db.json
+/**
+ * Deletes the item with the corrosponding id
+ * @param {*} id 
+ */
 async function deleteId(id){
     const response = await fetch(url + '/' + id, {method: 'DELETE'})
     if(!response.ok){
         throw Error('Error' + response.url + response.statusText);
     }
 }
-//add event for when button gets pressed
+
+//creating event listener for buttons
 const relayGroup = document.querySelectorAll('.relay');
 relayGroup.forEach(item => item.addEventListener("click", event => {
+    //prevent submission
     event.preventDefault();
-    const id = item.id; //prob can rid of
+
+    //can prob get rid off
+    const id = item.id;
+    
+    //method to update JSON array
     readJsonFile().then(jsonArray => {
-        const index = jsonArray.findIndex(loc => loc.id === id); //finds where the target id is in the json array
-        if(index !== -1){ // if id is in the array
+        //finds where the target id is in the json array
+        const index = jsonArray.findIndex(loc => loc.id === id); 
+        
+        // if id is in the array
+        if(index !== -1){ 
             jsonArray.splice(index, 1);
             deleteId(id);
-        } else { // if id is not in the array
+        } 
+        
+        // if id is not in the array
+        else { 
             writeJsonFile({id});
         }
     });
-    item.classList.toggle('on'); // toggles 'on' class so css can do stuff
+
+    // toggles 'on' class so css can do stuff
+    item.classList.toggle('on'); 
 }));
