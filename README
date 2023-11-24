@@ -1,8 +1,7 @@
 This project was made for raspberry pi and Waveshare RPi 8-ch Relay Board
-This project still under construction, a python file has yet to be added as of 9/7/2023
-Python file will be added before the end of September, setting up a few things on the Raspberry Pi first
+Planned overhual of project planned for late december/early january
 
-All code and live local servers are through VScode
+All code and live local servers are through VScode (to be changed)
 
 Webpage Server:
 -"Live Server" VScode extension from Ritwick Dey
