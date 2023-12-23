@@ -6,4 +6,13 @@ relayGroup.forEach(item => item.addEventListener("click", event => {
 
     // toggles 'on' class so css can do stuff
     item.classList.toggle('on'); 
+
+    const button_id = item.id;
+    fetch(`/button_clicked/${button_id}`, {
+        method: 'POST',
+        headers:{
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({}),
+    });
 }));
