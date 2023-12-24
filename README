@@ -1,33 +1,6 @@
 This project was made for raspberry pi and Waveshare RPi 8-ch Relay Board
-Planned overhual of project planned for late december/early january
+Version 2.0 is completed.
 
-All code and live local servers are through VScode (to be changed)
+the webapp now utilizes flask
 
-Webpage Server:
--"Live Server" VScode extension from Ritwick Dey
-
-JSON Server:
--https://github.com/typicode/json-server
-
-Setup project:
--download the webpage server
-
--use search bar in VScode to find settings.json
-
--add the below code anywhere in file to turn off live reload on the json file. This prevents the webpage reloading everytime the json file updates.
-
-"liveServer.settings.ignoreFiles": [
-  ".vscode/**",
-  "**/db.json"
-]
-
-here is the link that I used for this step:
-https://gist.github.com/ihollander/cc5f36c6447d15dea6a16f68d82aacf7
-
--open VScode terminal and type the following code to install the json server
-
-npm install -g json-server
-
--To start the JSON server type
-
-json-server --watch db.json
+documentation to be provided by end of year
