@@ -24,7 +24,7 @@ def button_clicked(button_id):
         GPIO.output(Relay[button_id-1], GPIO.LOW)
         activeRelays.remove(button_id)
     else:
-        GPIO.output(Relay[i], GPIO.HIGH)
+        GPIO.output(Relay[button_id-1], GPIO.HIGH)
         activeRelays.append(button_id)
 
     return {'status':'success'}, 200
